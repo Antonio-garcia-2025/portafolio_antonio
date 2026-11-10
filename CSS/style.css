@@ -1,0 +1,202 @@
+:root {
+    color-scheme: light;
+    --color-background: #fff1d9;
+    --color-peach: #e8b7a6;
+    --color-cream: #f4dccb;
+    --color-text: #333;
+    --color-accent: #5a3a35;
+    --shadow-soft: 0 10px 28px rgba(90, 58, 53, 0.12);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: clamp(0.75rem, 4vw, 3rem);
+    display: flex;
+    flex-direction: column;
+    gap: clamp(0.75rem, 2.5vw, 1.25rem);
+    color: var(--color-text);
+    background:
+        radial-gradient(ellipse at top left, rgba(232, 183, 166, 0.32), transparent 38rem),
+        var(--color-background);
+    font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+body > * {
+    width: 100%;
+    min-width: 0;
+}
+
+header {
+    padding: clamp(1.25rem, 5vw, 3rem) clamp(0.75rem, 4vw, 1.5rem);
+    border: 1px solid rgba(90, 58, 53, 0.08);
+    border-radius: 1.25rem;
+    background: linear-gradient(135deg, var(--color-peach), #f0cabb);
+    box-shadow: var(--shadow-soft);
+}
+
+header h1 {
+    margin: 0;
+    color: var(--color-accent);
+    text-align: center;
+    font-size: clamp(1.8rem, 5vw, 2.6rem);
+    letter-spacing: 0.02em;
+}
+
+nav.navbar {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    padding: 0.85rem;
+    border: 1px solid rgba(90, 58, 53, 0.08);
+    border-radius: 1rem;
+    background-color: var(--color-cream);
+    box-shadow: 0 5px 16px rgba(90, 58, 53, 0.08);
+}
+
+a {
+    display: inline-block;
+    padding: 0.55rem 0.9rem;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    color: var(--color-accent);
+    background-color: var(--color-peach);
+    font-weight: 700;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+    transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+}
+
+a:hover {
+    transform: translateY(-2px);
+    background-color: #efc5b5;
+    box-shadow: 0 5px 12px rgba(90, 58, 53, 0.16);
+}
+
+a:focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 3px;
+}
+
+p {
+    color: var(--color-text);
+    line-height: 1.7;
+}
+
+body > p {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: clamp(1.25rem, 4vw, 2.25rem);
+    border: 1px solid rgba(90, 58, 53, 0.08);
+    border-left: 5px solid var(--color-peach);
+    border-radius: 1rem;
+    background-color: rgba(255, 255, 255, 0.42);
+    box-shadow: var(--shadow-soft);
+}
+
+.projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+    gap: clamp(0.75rem, 2.5vw, 1.25rem);
+    align-items: stretch;
+}
+
+.project {
+    min-width: 0;
+    padding: clamp(1.2rem, 3vw, 1.75rem);
+    border: 1px solid rgba(90, 58, 53, 0.1);
+    border-top: 5px solid var(--color-peach);
+    border-radius: 1rem;
+    background: linear-gradient(160deg, #fffaf3, var(--color-cream));
+    box-shadow: var(--shadow-soft);
+    transition: transform 180ms ease, box-shadow 180ms ease;
+    overflow-wrap: anywhere;
+}
+
+.project:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 32px rgba(90, 58, 53, 0.16);
+}
+
+.project h2 {
+    margin-top: 0;
+    color: var(--color-accent);
+}
+
+.project p {
+    margin: 0.75rem 0;
+}
+
+footer {
+    margin-top: auto;
+    padding: 0.75rem 1rem;
+    border: 1px solid rgba(90, 58, 53, 0.08);
+    border-radius: 1rem;
+    background-color: var(--color-peach);
+    box-shadow: 0 5px 16px rgba(90, 58, 53, 0.1);
+    text-align: center;
+}
+
+footer p {
+    margin: 0;
+}
+
+@media (max-width: 600px) {
+    nav.navbar {
+        gap: 0.55rem;
+        padding: 0.65rem;
+    }
+
+    nav.navbar a {
+        flex: 1 1 8rem;
+        text-align: center;
+    }
+
+    body > p {
+        padding: 1.25rem;
+    }
+
+    .projects {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+@media (max-width: 380px) {
+    body {
+        padding: 0.65rem;
+    }
+
+    header {
+        border-radius: 0.9rem;
+    }
+
+    header h1 {
+        font-size: clamp(1.5rem, 8vw, 1.8rem);
+    }
+
+    body > p,
+    .project {
+        padding: 1rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+    }
+}
